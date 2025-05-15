@@ -1,3 +1,5 @@
-theme: jekyll-theme-minimal
 title: Cloverity team
 description: Partner of your success.
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme 
