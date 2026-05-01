@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloverity — Partner of your success</title>
+    <meta name="description"
+          content="Cloverity is a software development partner helping teams ship reliable products faster.">
+    <meta property="og:title" content="Cloverity — Partner of your success">
+    <meta property="og:description"
+          content="Cloverity is a software development partner helping teams ship reliable products faster.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cloverity.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#222;background:#f5f5f5;display:flex;justify-content:center;padding:20px 10px}
+        #app{max-width:740px;width:100%;background:#fff;border-radius:12px;border:1px solid #ddd;overflow:hidden}
+        .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid #ddd;background:#fff;position:sticky;top:0;z-index:10;flex-wrap:wrap;gap:8px}
+        .nav-logo{display:flex;align-items:center;gap:8px;cursor:pointer}
+        .nav-logo-icon{width:30px;height:30px;border-radius:6px;background:#333;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700}
+        .nav-logo span{font-weight:700;font-size:14px}
+        .nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+        .nav-btn{padding:5px 10px;font-size:11px;border:none;border-radius:5px;background:transparent;cursor:pointer;font-weight:400;color:#333;font-family:inherit}
+        .nav-btn.active{background:#eee;font-weight:600}
+        .nav-btn:hover{background:#f0f0f0}
+        .lang-btn{padding:4px 8px;font-size:10px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;font-weight:600;font-family:inherit}
+        .lang-btn.active{border:1.5px solid #333;background:#f0f0f0}
+        .cta-nav{padding:6px 14px;font-size:11px;border:none;border-radius:5px;background:#333;color:#fff;cursor:pointer;font-weight:600;margin-left:6px;font-family:inherit}
+        .sec{padding:44px 24px;border-bottom:1px solid #eee}
+        .sec-alt{background:#fafafa}
+        h2.title{font-size:18px;font-weight:700;margin-bottom:6px;color:#111}
+        h3.stitle{font-size:14px;font-weight:700;margin-bottom:4px;color:#222}
+        .sub{font-size:12px;color:#888;margin-bottom:20px;line-height:1.6}
+        .card{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:18px;cursor:default}
+        .card.click{cursor:pointer}
+        .card.click:hover{border-color:#bbb}
+        .btn{display:inline-block;padding:10px 22px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;text-align:center;border:none;font-family:inherit}
+        .btn-p{background:#333;color:#fff}
+        .btn-s{background:#fff;color:#333;border:1.5px solid #ccc}
+        .btn:hover{opacity:.85}
+        .btn-full{display:block;width:100%}
+        .img-ph{width:100%;background:#ebebeb;border:2px dashed #c0c0c0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+        .img-ph span{font-size:10px;color:#aaa}
+        .badge{display:inline-block;padding:4px 10px;border-radius:4px;background:#f0f0f0;font-size:10px;font-weight:600;color:#555}
+        .pill{padding:5px 12px;border-radius:20px;background:#f0f0f0;font-size:11px;font-weight:500;color:#444;display:inline-block}
+        .stat-num{font-size:26px;font-weight:800;color:#222}
+        .stat-label{font-size:11px;color:#888;margin-top:2px}
+        .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+        .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+        .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+        .faq-item{border-bottom:1px solid #eee}
+        .faq-q{padding:14px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q span:first-child{font-size:13px;font-weight:600}
+        .faq-q .icon{font-size:16px;color:#888;transition:transform .2s}
+        .faq-q .icon.open{transform:rotate(45deg)}
+        .faq-a{font-size:12px;color:#666;line-height:1.7;padding-bottom:14px;display:none}
+        .faq-a.show{display:block}
+        .result-tag{font-size:11px;color:#333;font-weight:600;padding:6px 10px;background:#eafbe7;border-radius:4px;display:inline-block}
+        table{width:100%;font-size:11px;border-collapse:collapse;table-layout:fixed}
+        th,td{padding:8px 6px;text-align:center}
+        th{font-weight:600;border-bottom:2px solid #ddd}
+        td{border-bottom:1px solid #eee}
+        th:first-child,td:first-child{text-align:left}
+        .hl{background:#f9f9f9;font-weight:600}
+        .footer{padding:24px;border-top:1px solid #ddd}
+        .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:16px}
+        .footer-links{display:flex;gap:16px}
+        .footer-links span{font-size:11px;color:#888;cursor:pointer}
+        .footer-links span:hover{color:#555}
+        .footer-bottom{border-top:1px solid #eee;padding-top:12px;display:flex;justify-content:space-between;font-size:10px;color:#bbb}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+        .form-group{margin-bottom:10px}
+        .form-group label{font-size:10px;color:#888;display:block;margin-bottom:3px}
+        .form-input{height:36px;border:1px solid #ddd;border-radius:6px;background:#fafafa;width:100%}
+        .form-textarea{height:80px;border:1px solid #ddd;border-radius:6px;background:#fafafa;width:100%}
+        .form-select{height:36px;border:1px solid #ddd;border-radius:6px;background:#fafafa;width:100%;display:flex;align-items:center;padding:0 10px;font-size:11px;color:#aaa}
+        .page{display:none;min-height:400px}
+        .page.active{display:block}
+        .quote-mark{font-size:28px;color:#ddd;margin-bottom:8px}
+        .quote-text{font-size:13px;color:#555;line-height:1.8;font-style:italic}
+        .step-circle{width:32px;height:32px;border-radius:50%;background:#333;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;margin:0 auto 10px}
+        .trust-icon{font-size:24px;margin-bottom:6px}
+        .contact-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px}
+        .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px;align-items:center}
+        .case-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:16px}
+        .about-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px}
+        .cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center}
+        @media(max-width:600px){
+          .grid2,.grid3,.grid4,.hero-grid,.case-grid,.about-grid,.contact-grid,.cta-grid,.form-row{grid-template-columns:1fr}
+          .nav{flex-direction:column;align-items:flex-start}
+          .sec{padding:28px 16px}
+          table{font-size:9px}
+          th,td{padding:5px 3px}
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- NAV -->
+    <div class="nav">
+        <div class="nav-logo" onclick="go('home')">
+            <div class="nav-logo-icon">C</div>
+            <span>Cloverity</span>
+        </div>
+        <div class="nav-links" id="navLinks"></div>
+    </div>
+
+    <!-- HOME -->
+    <div class="page active" id="page-home">
+        <div class="sec">
+            <div class="hero-grid">
+                <div>
+                    <div style="font-size:22px;font-weight:800;line-height:1.3;margin-bottom:12px;color:#111"
+                         data-t="Custom software development & AI integrations|Розробка ПЗ та AI інтеграції на замовлення"></div>
+                    <div style="font-size:12px;color:#666;line-height:1.7;margin-bottom:20px"
+                         data-t="Expert Python/FastAPI developers. Scalable APIs for Agritech, Healthcare, and Automotive. Fixed-price model — clear scope, clear budget.|Досвідчені Python/FastAPI розробники. Масштабовані API для Agritech, Healthcare та Automotive. Фіксована ціна — чіткий обсяг, чіткий бюджет."></div>
+                    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+                        <span class="badge" data-t="✓ Fixed-price projects|✓ Фіксована ціна"></span>
+                        <span class="badge" data-t="✓ AI-powered solutions|✓ AI-рішення"></span>
+                        <span class="badge" data-t="✓ 10+ years experience|✓ 10+ років досвіду"></span>
+                    </div>
+                    <div style="display:flex;gap:8px">
+                        <button class="btn btn-p" onclick="go('contact')"
+                                data-t="Start a project|Розпочати проєкт"></button>
+                        <button class="btn btn-s" onclick="go('cases')" data-t="Case studies|Кейси"></button>
+                    </div>
+                </div>
+                <div class="img-ph" style="height:220px">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="2" width="20" height="20" rx="3" stroke="#aaa" stroke-width="1.5"/>
+                        <circle cx="8" cy="8" r="2" fill="#bbb"/>
+                        <path d="M2 16l5-5 3 3 4-4 8 8v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2z" fill="#bbb" opacity=".35"/>
+                    </svg>
+                    <span data-t="Hero illustration|Hero ілюстрація"></span></div>
+            </div>
+        </div>
+
+        <div class="sec sec-alt" style="text-align:center">
+            <h2 class="title" data-t="Our track record|Наші результати"></h2>
+            <div class="sub"
+                 data-t="Numbers that demonstrate commitment to excellence|Цифри, що говорять самі за себе"></div>
+            <div class="grid4">
+                <div>
+                    <div class="stat-num">10+</div>
+                    <div class="stat-label" data-t="Years experience|Років досвіду"></div>
+                </div>
+                <div>
+                    <div class="stat-num">20+</div>
+                    <div class="stat-label" data-t="Projects delivered|Проєктів здано"></div>
+                </div>
+                <div>
+                    <div class="stat-num">3</div>
+                    <div class="stat-label" data-t="Industry domains|Індустрії"></div>
+                </div>
+                <div>
+                    <div class="stat-num">24hr</div>
+                    <div class="stat-label" data-t="Response time|Час відповіді"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec">
+            <div style="text-align:center">
+                <h2 class="title" data-t="Problems we solve|Проблеми, які вирішуємо"></h2>
+                <div class="sub"
+                     data-t="Whatever challenge you're facing — we have the expertise|Яка б не була задача — ми маємо досвід"></div>
+            </div>
+            <div class="grid2" id="problems"></div>
+        </div>
+
+        <div class="sec sec-alt">
+            <div style="text-align:center">
+                <h2 class="title" data-t="What we do|Що ми робимо"></h2>
+            </div>
+            <div class="grid3" style="margin-top:16px" id="servicesPreview"></div>
+            <div style="text-align:center;margin-top:16px">
+                <button class="btn btn-s" onclick="go('services')" data-t="All services →|Всі послуги →"></button>
+            </div>
+        </div>
+
+        <div class="sec" style="text-align:center">
+            <div style="max-width:480px;margin:0 auto">
+                <div class="quote-mark">"</div>
+                <div class="quote-text"
+                     data-t="Their understanding of our objectives and how to achieve them efficiently was impressive. The fixed-price model gave us full budget control.|Їхнє розуміння наших цілей і ефективний підхід вражають. Модель фіксованої ціни дала повний контроль бюджету."></div>
+                <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px">
+                    <div style="width:36px;height:36px;border-radius:50%;background:#e0e0e0"></div>
+                    <div style="text-align:left">
+                        <div style="font-size:12px;font-weight:600" data-t="Client Name|Ім'я клієнта"></div>
+                        <div style="font-size:10px;color:#999" data-t="CTO @ Company|CTO @ Компанія"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec sec-alt">
+            <div style="text-align:center">
+                <h2 class="title" data-t="Selected case studies|Вибрані кейси"></h2>
+                <div class="sub" data-t="Real projects, real results|Реальні проєкти, реальні результати"></div>
+            </div>
+            <div id="casesPreview"></div>
+            <div style="text-align:center;margin-top:16px">
+                <button class="btn btn-s" onclick="go('cases')" data-t="All case studies →|Всі кейси →"></button>
+            </div>
+        </div>
+
+        <div class="sec">
+            <div style="text-align:center">
+                <h2 class="title" data-t="How we work|Як ми працюємо"></h2>
+                <div class="sub" data-t="Transparent, efficient, results-driven|Прозоро, ефективно, на результат"></div>
+            </div>
+            <div class="grid4" id="steps"></div>
+        </div>
+
+        <div class="sec sec-alt">
+            <div style="text-align:center">
+                <h2 class="title" data-t="How do we compare|Як ми порівнюємось"></h2>
+                <div class="sub" data-t="See why companies choose us|Чому компанії обирають нас"></div>
+            </div>
+            <div style="overflow-x:auto" id="compTable"></div>
+        </div>
+
+        <div class="sec">
+            <div class="grid3" id="trustBadges"></div>
+        </div>
+
+        <div class="sec sec-alt">
+            <div class="cta-grid">
+                <div>
+                    <h2 class="title" data-t="Ready to build?|Готові будувати?"></h2>
+                    <div style="font-size:12px;color:#666;line-height:1.7;margin:12px 0 16px"
+                         data-t="Tell us about your project and we'll get back within 24 hours with a fixed-price estimate.|Розкажіть про проєкт — відповімо за 24 години з оцінкою фіксованої ціни."></div>
+                    <div class="img-ph" style="height:140px">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect x="2" y="2" width="20" height="20" rx="3" stroke="#aaa" stroke-width="1.5"/>
+                            <circle cx="8" cy="8" r="2" fill="#bbb"/>
+                            <path d="M2 16l5-5 3 3 4-4 8 8v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2z" fill="#bbb"
+                                  opacity=".35"/>
+                        </svg>
+                        <span data-t="CTA illustration|CTA ілюстрація"></span></div>
+                </div>
+                <div id="ctaForm"></div>
+            </div>
+        </div>
+
+        <div class="sec">
+            <div style="max-width:500px;margin:0 auto">
+                <h2 class="title" data-t="Frequently asked questions|Поширені запитання"></h2>
+                <div style="margin-top:12px" id="faqList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="page" id="page-services">
+        <div class="sec">
+            <h2 class="title" data-t="Our services|Наші послуги"></h2>
+            <div class="sub"
+                 data-t="Full-cycle software development with AI at the core|Повний цикл розробки з AI у центрі"></div>
+            <div class="grid2" id="servicesFull"></div>
+        </div>
+        <div class="sec sec-alt">
+            <h2 class="title" data-t="Tech stack|Стек технологій"></h2>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px" id="techStack"></div>
+        </div>
+        <div class="sec" style="text-align:center">
+            <h2 class="title" data-t="Fixed-price model|Модель фіксованої ціни"></h2>
+            <div class="sub"
+                 data-t="No hourly billing. Clear scope, clear budget, clear deliverables.|Без погодинної оплати. Чіткий обсяг, бюджет, результат."></div>
+            <button class="btn btn-p" onclick="go('contact')" data-t="Get an estimate|Отримати оцінку"></button>
+        </div>
+    </div>
+
+    <!-- CASES -->
+    <div class="page" id="page-cases">
+        <div class="sec">
+            <h2 class="title" data-t="Case studies|Кейси"></h2>
+            <div class="sub"
+                 data-t="Real projects across Agritech, Healthcare, and Automotive|Реальні проєкти у сферах Agritech, Healthcare та Automotive"></div>
+            <div id="casesFull"></div>
+        </div>
+    </div>
+
+    <!-- BLOG -->
+    <div class="page" id="page-blog">
+        <div class="sec">
+            <h2 class="title" data-t="Blog|Блог"></h2>
+            <div class="sub"
+                 data-t="Insights on AI, software engineering, and tech|Статті про AI, розробку та технології"></div>
+            <div class="grid2" id="blogList"></div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="page" id="page-about">
+        <div class="sec">
+            <h2 class="title" data-t="About Cloverity Software|Про Cloverity Software"></h2>
+            <div class="about-grid" style="margin-top:16px">
+                <div>
+                    <div style="font-size:13px;color:#555;line-height:1.8;margin-bottom:20px"
+                         data-t="Cloverity Software is a custom software development company specializing in AI integrations, scalable APIs, and cloud-native solutions. Based in Ukraine, we work with clients in the US, EU, and worldwide — delivering high-quality products across Agritech, Healthcare, and Automotive.|Cloverity Software — компанія з розробки ПЗ, що спеціалізується на AI-інтеграціях, масштабованих API та хмарних рішеннях. Базуючись в Україні, ми працюємо з клієнтами в США, ЄС та по всьому світу у сферах Agritech, Healthcare та Automotive."></div>
+                    <div class="grid2" id="aboutStats"></div>
+                </div>
+                <div class="img-ph" style="height:260px">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="2" width="20" height="20" rx="3" stroke="#aaa" stroke-width="1.5"/>
+                        <circle cx="8" cy="8" r="2" fill="#bbb"/>
+                        <path d="M2 16l5-5 3 3 4-4 8 8v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2z" fill="#bbb" opacity=".35"/>
+                    </svg>
+                    <span data-t="Team / founder photo|Фото команди / засновника"></span></div>
+            </div>
+        </div>
+        <div class="sec sec-alt">
+            <h2 class="title" data-t="Our values|Наші цінності"></h2>
+            <div class="grid3" style="margin-top:16px" id="valuesList"></div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="page" id="page-contact">
+        <div class="sec">
+            <h2 class="title" data-t="Get started today|Розпочніть сьогодні"></h2>
+            <div class="sub"
+                 data-t="Tell us about your project — we'll get back within 24 hours|Розкажіть про проєкт — відповімо за 24 години"></div>
+            <div class="contact-grid">
+                <div id="contactFormFull"></div>
+                <div id="contactSidebar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-top">
+            <div>
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
+                    <div style="width:22px;height:22px;border-radius:4px;background:#333;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;font-weight:700">
+                        C
+                    </div>
+                    <span style="font-weight:700;font-size:12px">Cloverity Software</span>
+                </div>
+                <div style="font-size:10px;color:#999;line-height:1.6"
+                     data-t="Custom software · AI integrations · Scalable APIs|Розробка ПЗ · AI інтеграції · Масштабовані API"></div>
+            </div>
+            <div class="footer-links" id="footerLinks"></div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Cloverity Software</span>
+            <span data-t="Privacy · Terms|Конфіденційність · Умови"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    let lang = 'en';
+    let currentPage = 'home';
+    const pages = ['home','services','cases','blog','about','contact'];
+    const navLabels = {home:['Home','Головна'],services:['Services','Послуги'],cases:['Cases','Кейси'],blog:['Blog','Блог'],about:['About','Про нас'],contact:['Contact','Контакт']};
+
+    function T(en,ua){return lang==='en'?en:ua}
+    function go(p){
+      currentPage=p;
+      pages.forEach(id=>{
+        document.getElementById('page-'+id).classList.toggle('active',id===p);
+      });
+      renderNav();
+      window.scrollTo(0,0);
+    }
+    function setLang(l){lang=l;renderAll();}
+
+    function renderNav(){
+      const c=document.getElementById('navLinks');
+      let h='';
+      pages.forEach(p=>{
+        h+=`<button class="nav-btn ${p===currentPage?'active':''}" onclick="go('${p}')">${navLabels[p][lang==='en'?0:1]}</button>`;
+      });
+      h+=`<button class="lang-btn ${lang==='en'?'active':''}" onclick="setLang('en')" style="margin-left:8px">EN</button>`;
+      h+=`<button class="lang-btn ${lang==='ua'?'active':''}" onclick="setLang('ua')">UA</button>`;
+      h+=`<button class="cta-nav" onclick="go('contact')">${T("LET'S TALK","ЗВ'ЯЖІТЬСЯ")}</button>`;
+      c.innerHTML=h;
+    }
+
+    function imgPh(height,label){
+      return `<div class="img-ph" style="height:${height}px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="#aaa" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="#bbb"/><path d="M2 16l5-5 3 3 4-4 8 8v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2z" fill="#bbb" opacity=".35"/></svg><span>${label}</span></div>`;
+    }
+
+    function renderProblems(){
+      const d=[
+        [T('Need an AI-powered product?','Потрібен AI-продукт?'),T('We build LLM pipelines, RAG systems, and document intelligence solutions from scratch.','Ми будуємо LLM пайплайни, RAG системи та рішення для аналізу документів з нуля.')],
+        [T('Building an MVP?','Будуєте MVP?'),T('From idea to working product with fixed budget and clear timeline.','Від ідеї до працюючого продукту з фіксованим бюджетом та чітким таймлайном.')],
+        [T('Scaling your backend?','Масштабуєте бекенд?'),T('Cloud-native architecture on GCP — microservices, APIs, databases that grow with you.','Cloud-native архітектура на GCP — мікросервіси, API, бази даних, що ростуть з вами.')],
+        [T('Technical debt?','Технічний борг?'),T('Code audit, refactoring, architecture review — we clean up and optimize.','Аудит коду, рефакторинг, ревʼю архітектури — чистимо та оптимізуємо.')],
+      ];
+      document.getElementById('problems').innerHTML=d.map(([q,a])=>`<div class="card"><h3 class="stitle">${q}</h3><div style="font-size:11px;color:#777;line-height:1.6;margin-top:6px">${a}</div></div>`).join('');
+    }
+
+    function renderServicesPreview(){
+      const d=[
+        [T('Custom development','Розробка на замовлення'),T('Python, FastAPI, scalable backends, REST APIs','Python, FastAPI, масштабовані бекенди, REST API')],
+        [T('AI & LLM integrations','AI та LLM інтеграції'),T('RAG, document intelligence, semantic search, Claude AI','RAG, аналіз документів, семантичний пошук, Claude AI')],
+        [T('Cloud & DevOps','Хмара та DevOps'),T('GCP, Docker, CI/CD, monitoring, Cloud Run','GCP, Docker, CI/CD, моніторинг, Cloud Run')],
+      ];
+      document.getElementById('servicesPreview').innerHTML=d.map(([t,desc])=>`<div class="card click" onclick="go('services')"><div style="width:32px;height:32px;border-radius:8px;background:#e0e0e0;margin-bottom:10px"></div><h3 class="stitle">${t}</h3><div style="font-size:11px;color:#888;line-height:1.5;margin-top:4px">${desc}</div></div>`).join('');
+    }
+
+    function renderCasesPreview(){
+      const d=[
+        ['BidReview',T('AI-powered tender analysis','AI-аналіз тендерів'),T('Client need: Automate 100+ page tender document review','Задача: автоматизувати аналіз тендерів 100+ сторінок'),T('Result: Review time from days to minutes','Результат: час аналізу з днів до хвилин'),'Python · FastAPI · Claude AI · GCP'],
+        ['SEPIDA',T('SEC filing extraction','Витяг SEC-файлів'),T('Client need: Extract financial statements with 100% accuracy','Задача: витягти фін. звіти з 100% точністю'),T('Result: 5 statement types, zero errors','Результат: 5 типів звітів, нуль помилок'),'Python · FastAPI · pdfplumber'],
+      ];
+      document.getElementById('casesPreview').innerHTML=d.map(([name,desc,need,result,stack])=>`<div class="card click" onclick="go('cases')" style="margin-bottom:14px"><div class="case-grid"><div><div style="display:flex;gap:8px;align-items:center;margin-bottom:8px"><h3 class="stitle">${name}</h3><span class="badge">${desc}</span></div><div style="font-size:11px;color:#666;margin-bottom:6px">${need}</div><div class="result-tag" style="margin-bottom:8px">${result}</div><div style="font-size:10px;color:#aaa">${stack}</div></div>${imgPh(120,T('Screenshot','Скріншот'))}</div></div>`).join('');
+    }
+
+    function renderSteps(){
+      const d=[
+        ['1',T('Discovery','Аналіз'),T('Understand goals, define scope, fixed-price estimate','Розуміємо цілі, визначаємо обсяг, фіксована ціна')],
+        ['2',T('Build','Розробка'),T('Iterative sprints, regular demos, code reviews','Ітеративні спринти, регулярні демо, ревʼю коду')],
+        ['3',T('Test & QA','Тестування'),T('Automated testing, TDD, security checks','Автотести, TDD, перевірка безпеки')],
+        ['4',T('Launch','Запуск'),T('Deploy, monitor, ongoing support','Деплой, моніторинг, підтримка')],
+      ];
+      document.getElementById('steps').innerHTML=d.map(([n,t,desc])=>`<div style="text-align:center"><div class="step-circle">${n}</div><div style="font-size:12px;font-weight:700;margin-bottom:4px">${t}</div><div style="font-size:10px;color:#888;line-height:1.5">${desc}</div></div>`).join('');
+    }
+
+    function renderCompTable(){
+      const rows=[
+        [T('Pricing model','Модель оплати'),T('Fixed-price','Фікс. ціна'),T('Hourly','Погодинно'),'T&M',T('Salary','Зарплата')],
+        [T('AI expertise','AI експертиза'),'✅','❌','☑️','☑️'],
+        [T('Cost','Вартість'),'💲','💲','💲💲💲','💲💲💲'],
+        [T('Time to start','Час старту'),'✅ '+T('Fast','Швидко'),'☑️','❌ '+T('Slow','Повільно'),'❌ '+T('Slow','Повільно')],
+        [T('Flexibility','Гнучкість'),'✅','☑️','❌','❌'],
+        [T('Code quality','Якість коду'),'✅ TDD','❌ '+T('Varies','Різна'),'☑️','☑️'],
+      ];
+      let h=`<table><thead><tr><th>${T('Criteria','Критерій')}</th><th class="hl">Cloverity</th><th>${T('Freelancers','Фрілансери')}</th><th>${T('Agencies','Агенції')}</th><th>${T('In-house','In-house')}</th></tr></thead><tbody>`;
+      rows.forEach(r=>{h+=`<tr><td style="font-weight:500">${r[0]}</td><td class="hl">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`;});
+      h+='</tbody></table>';
+      document.getElementById('compTable').innerHTML=h;
+    }
+
+    function renderTrustBadges(){
+      const d=[
+        ['🔒',T('NDA protected','NDA захист'),T('Your ideas are safe','Ваші ідеї у безпеці')],
+        ['⚡',T('24hr response','Відповідь за 24г'),T('Quick turnaround','Швидкий зворотній зв\'язок')],
+        ['✅',T('Fixed-price guarantee','Гарантія фікс. ціни'),T('No hidden costs','Без прихованих витрат')],
+      ];
+      document.getElementById('trustBadges').innerHTML=d.map(([icon,t,desc])=>`<div style="text-align:center;padding:16px"><div class="trust-icon">${icon}</div><div style="font-size:12px;font-weight:700;margin-bottom:2px">${t}</div><div style="font-size:10px;color:#888">${desc}</div></div>`).join('');
+    }
+
+    function formHTML(compact){
+      let h=`<div class="form-row"><div class="form-group"><label>${T('Full name *','Повне ім\'я *')}</label><div class="form-input"></div></div><div class="form-group"><label>${T('Email *','Пошта *')}</label><div class="form-input"></div></div></div>`;
+      h+=`<div class="form-row"><div class="form-group"><label>${T('Company','Компанія')}</label><div class="form-input"></div></div><div class="form-group"><label>${T('Budget range *','Бюджет *')}</label><div class="form-select">${T('Select budget range','Оберіть бюджет')} ▾</div></div></div>`;
+      if(!compact){h+=`<div class="form-group"><label>${T('Project details *','Деталі проєкту *')}</label><div class="form-textarea"></div></div>`;}
+      h+=`<button class="btn btn-p btn-full">${T('Send message','Надіслати')}</button>`;
+      return h;
+    }
+
+    function renderCtaForm(){document.getElementById('ctaForm').innerHTML=formHTML(true);}
+
+    function renderFaq(){
+      const d=[
+        [T('What tech stack do you use?','Який стек технологій ви використовуєте?'),T('We specialize in Python/FastAPI for backends, Next.js/React for frontends, PostgreSQL for databases, and GCP for cloud infrastructure. We also integrate Claude AI and other LLMs.','Ми спеціалізуємось на Python/FastAPI для бекенду, Next.js/React для фронтенду, PostgreSQL для баз даних та GCP для хмарної інфраструктури. Також інтегруємо Claude AI та інші LLM.')],
+        [T('How does fixed-price billing work?','Як працює фіксована ціна?'),T('We scope the project together, agree on deliverables, and provide a fixed price. No hourly billing, no surprises.','Ми визначаємо обсяг разом, узгоджуємо результати та даємо фіксовану ціну. Без погодинної оплати, без сюрпризів.')],
+        [T('What industries do you work with?','З якими індустріями ви працюєте?'),T('Deep expertise in Agritech, Healthcare, and Automotive. We also work with fintech and SaaS.','Глибока експертиза в Agritech, Healthcare та Automotive. Також працюємо з fintech та SaaS.')],
+        [T('How do you handle communication?','Як ви комунікуєте?'),T('Daily updates, regular demos, direct access to developers via Slack/email. No middlemen.','Щоденні оновлення, регулярні демо, прямий доступ до розробників через Slack/email. Без посередників.')],
+        [T('Can you work with our existing team?','Чи можете працювати з нашою командою?'),T('Absolutely. We integrate seamlessly with your team using your tools and processes.','Безумовно. Ми легко інтегруємось у вашу команду, використовуючи ваші інструменти та процеси.')],
+      ];
+      document.getElementById('faqList').innerHTML=d.map(([q,a],i)=>`<div class="faq-item"><div class="faq-q" onclick="toggleFaq(${i})"><span>${q}</span><span class="icon" id="faq-icon-${i}">+</span></div><div class="faq-a" id="faq-a-${i}">${a}</div></div>`).join('');
+    }
+
+    function toggleFaq(i){
+      const el=document.getElementById('faq-a-'+i);
+      const icon=document.getElementById('faq-icon-'+i);
+      const open=el.classList.toggle('show');
+      icon.classList.toggle('open',open);
+      document.querySelectorAll('.faq-a').forEach((e,j)=>{if(j!==i){e.classList.remove('show');document.getElementById('faq-icon-'+j).classList.remove('open');}});
+    }
+
+    function renderServicesFull(){
+      const d=[
+        [T('Custom software development','Розробка на замовлення'),T('Python/FastAPI backends, REST APIs, microservices, database design, cloud deployment.','Python/FastAPI бекенди, REST API, мікросервіси, бази даних, хмарний деплой.')],
+        [T('AI & LLM integrations','AI та LLM інтеграції'),T('RAG pipelines, document intelligence, semantic search, LLM fine-tuning, prompt engineering.','RAG пайплайни, аналіз документів, семантичний пошук, файн-тюнінг LLM, промпт-інженерія.')],
+        [T('Cloud & infrastructure','Хмара та інфраструктура'),T('GCP (Cloud Run, Cloud SQL, GCS), Docker, CI/CD, monitoring, scalable architecture.','GCP (Cloud Run, Cloud SQL, GCS), Docker, CI/CD, моніторинг, масштабована архітектура.')],
+        [T('API design & integration','API та інтеграції'),T('Third-party integrations, Stripe payments, webhooks, API documentation.','Інтеграція зі сторонніми сервісами, Stripe, вебхуки, документація API.')],
+        [T('Technical consulting','Технічний консалтинг'),T('Architecture review, code audit, technology selection, scaling strategy.','Ревʼю архітектури, аудит коду, вибір технологій, стратегія масштабування.')],
+        [T('MVP development','Розробка MVP'),T('From idea to working product in 90 days. Validated architecture, core features, deployment.','Від ідеї до продукту за 90 днів. Валідована архітектура, ключові фічі, деплой.')],
+      ];
+      document.getElementById('servicesFull').innerHTML=d.map(([t,desc])=>`<div class="card"><div style="width:32px;height:32px;border-radius:8px;background:#e8e8e8;margin-bottom:10px"></div><h3 class="stitle">${t}</h3><div style="font-size:11px;color:#888;line-height:1.6;margin-top:4px">${desc}</div></div>`).join('');
+    }
+
+    function renderTechStack(){
+      document.getElementById('techStack').innerHTML=['Python','FastAPI','PostgreSQL','GCP','Cloud Run','Docker','Claude AI','React','Next.js','Redis','Stripe','pdfplumber','pgvector','Playwright'].map(t=>`<span class="pill">${t}</span>`).join('');
+    }
+
+    function renderCasesFull(){
+      const d=[
+        ['BidReview','2024–present',T('AI-powered tender document analysis platform','AI-платформа для аналізу тендерних документів'),T('Automate review of 100+ page tender documents, reducing manual work from days to minutes.','Автоматизувати аналіз тендерів 100+ сторінок — замість днів за хвилини.'),T('Built Claude AI-powered analysis pipeline with FastAPI backend, Next.js frontend, deployed on GCP Cloud Run with PostgreSQL.','Побудовано AI-пайплайн на Claude AI з FastAPI бекендом, Next.js фронтендом, задеплоєно на GCP Cloud Run з PostgreSQL.'),T('Review time reduced from 3 days to 15 minutes. Currently in production with active users.','Час аналізу скоротився з 3 днів до 15 хвилин. Продукт у продакшні з активними юзерами.'),'Python · FastAPI · Next.js · Claude AI · GCP · PostgreSQL'],
+        ['SEPIDA','2024',T('SEC financial statement extraction platform','Платформа для витягу фін. звітів SEC'),T('Extract all 5 statement types from 10-K/10-Q filings with zero errors.','Витягти всі 5 типів звітів з 10-K/10-Q файлів без помилок.'),T('Built extraction engine using pdfplumber for text-based PDFs, FastAPI backend, Excel export pipeline.','Побудовано движок витягу на pdfplumber для текстових PDF, FastAPI бекенд, пайплайн експорту в Excel.'),T('100% extraction accuracy across all statement types. Processed thousands of filings.','100% точність витягу по всіх типах звітів. Оброблено тисячі файлів.'),'Python · FastAPI · pdfplumber · Excel'],
+        [T('Agritech IoT platform','Агротех IoT платформа'),'2023',T('IoT data pipeline for precision agriculture','IoT пайплайн для точного землеробства'),T('Process real-time sensor data from agricultural equipment.','Обробка даних сенсорів сільськогосподарської техніки в реальному часі.'),T('Built cloud-native data pipeline on GCP with real-time analytics dashboard.','Побудовано cloud-native пайплайн на GCP з аналітичним дашбордом реального часу.'),T('Real-time monitoring of 500+ sensors. 99.9% uptime.','Моніторинг 500+ сенсорів у реальному часі. 99.9% аптайм.'),'Python · GCP · PostgreSQL · REST API'],
+      ];
+      document.getElementById('casesFull').innerHTML=d.map(([name,year,desc,need,solution,result,stack])=>`<div class="card" style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div style="display:flex;gap:8px;align-items:center"><span style="font-size:16px;font-weight:800">${name}</span><span class="badge">${year}</span></div></div><div style="font-size:12px;color:#555;margin-bottom:12px">${desc}</div><div class="case-grid"><div><div style="margin-bottom:10px"><div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:3px">${T('Client need','Задача')}</div><div style="font-size:11px;color:#555;line-height:1.6">${need}</div></div><div style="margin-bottom:10px"><div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:3px">${T('Solution','Рішення')}</div><div style="font-size:11px;color:#555;line-height:1.6">${solution}</div></div><div style="margin-bottom:10px"><div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:3px">${T('Results','Результат')}</div><div class="result-tag">${result}</div></div><div style="font-size:10px;color:#aaa;margin-top:6px">${stack}</div></div>${imgPh(140,T('Screenshot','Скріншот'))}</div></div>`).join('');
+    }
+
+    function renderBlog(){
+      const d=[
+        [T('Building RAG systems that actually work','RAG-системи, які реально працюють'),T('Practical guide: semantic search, chunking, hybrid retrieval.','Практичний гайд: семантичний пошук, чанкінг, гібридний пошук.'),'12 Apr 2026','AI'],
+        [T('Fixed-price vs hourly billing','Фіксована ціна vs погодинна оплата'),T('Why fixed-price creates better outcomes for both sides.','Чому фіксована ціна — краще для обох сторін.'),'28 Mar 2026',T('Business','Бізнес')],
+        [T('Local LLMs on Apple Silicon','Локальні LLM на Apple Silicon'),T('Running Qwen3 on M4 Max with MLX — benchmarks and setup.','Запуск Qwen3 на M4 Max з MLX — бенчмарки та налаштування.'),'15 Mar 2026','AI'],
+        [T('Document intelligence beyond OCR','Аналіз документів далі за OCR'),T('How we achieved 100% accuracy on SEC filing extraction.','Як ми досягли 100% точності витягу SEC-файлів.'),'2 Mar 2026',T('Engineering','Інженерія')],
+      ];
+      document.getElementById('blogList').innerHTML=d.map(([title,desc,date,tag])=>`<div class="card">${imgPh(100,T('Cover','Обкладинка'))}<div style="display:flex;gap:8px;align-items:center;margin-top:10px"><span class="badge">${tag}</span><span style="font-size:10px;color:#aaa">${date}</span></div><div style="font-size:13px;font-weight:700;margin-top:6px">${title}</div><div style="font-size:11px;color:#888;margin-top:4px;line-height:1.5">${desc}</div></div>`).join('');
+    }
+
+    function renderAboutStats(){
+      const d=[
+        [T('10+ years','10+ років'),T('Software engineering','Досвід розробки')],
+        [T('Fixed-price','Фікс. ціна'),T('Transparent billing','Прозора оплата')],
+        [T('3 domains','3 домени'),T('Agritech · Health · Auto','Агро · Медицина · Авто')],
+        [T('Global clients','Глобальні клієнти'),T('US, EU, worldwide','США, ЄС, весь світ')],
+      ];
+      document.getElementById('aboutStats').innerHTML=d.map(([b,desc])=>`<div style="padding:12px;background:#f8f8f8;border-radius:6px"><div style="font-size:14px;font-weight:800">${b}</div><div style="font-size:10px;color:#888">${desc}</div></div>`).join('');
+    }
+
+    function renderValues(){
+      const d=[
+        [T('Transparency','Прозорість'),T('Fixed prices, daily updates, no hidden costs.','Фіксовані ціни, щоденні оновлення, без прихованих витрат.')],
+        [T('Quality','Якість'),T('Code reviews, TDD, automated testing.','Ревʼю коду, TDD, автоматизоване тестування.')],
+        [T('Results','Результат'),T('We measure success by your business outcomes.','Ми вимірюємо успіх вашими бізнес-результатами.')],
+      ];
+      document.getElementById('valuesList').innerHTML=d.map(([t,desc])=>`<div class="card"><h3 class="stitle">${t}</h3><div style="font-size:11px;color:#888;line-height:1.6;margin-top:4px">${desc}</div></div>`).join('');
+    }
+
+    function renderContactFull(){
+      document.getElementById('contactFormFull').innerHTML=formHTML(false);
+      const sidebar=[
+        `<div class="card"><h3 class="stitle">${T('Direct contact','Прямий контакт')}</h3><div style="font-size:11px;color:#888;line-height:2;margin-top:6px">hello@cloverity.com<br>${T('Ukraine (Kyiv region)','Україна (Київська обл.)')}<br>LinkedIn · GitHub</div></div>`,
+        `<div class="card"><h3 class="stitle">${T('What happens next?','Що далі?')}</h3><div style="font-size:11px;color:#666;line-height:1.8;margin-top:6px">${T('1. We review your request','1. Розглядаємо запит')}<br>${T('2. Free discovery call (30 min)','2. Безкоштовний дзвінок (30 хв)')}<br>${T('3. Fixed-price proposal in 3 days','3. Пропозиція за 3 дні')}</div></div>`,
+        `<div class="card"><div style="display:flex;gap:10px;flex-wrap:wrap"><span class="badge">🔒 ${T('NDA protected','NDA захист')}</span><span class="badge">⚡ ${T('24hr response','Відповідь 24г')}</span><span class="badge">✅ ${T('Fixed-price','Фікс. ціна')}</span></div></div>`,
+      ];
+      document.getElementById('contactSidebar').innerHTML=sidebar.join('');
+    }
+
+    function renderFooterLinks(){
+      document.getElementById('footerLinks').innerHTML=pages.slice(1).map(p=>`<span onclick="go('${p}')">${navLabels[p][lang==='en'?0:1]}</span>`).join('');
+    }
+
+    function applyTranslations(){
+      document.querySelectorAll('[data-t]').forEach(el=>{
+        const parts=el.getAttribute('data-t').split('|');
+        el.textContent=lang==='en'?parts[0]:parts[1];
+      });
+    }
+
+    function renderAll(){
+      renderNav();
+      renderProblems();
+      renderServicesPreview();
+      renderCasesPreview();
+      renderSteps();
+      renderCompTable();
+      renderTrustBadges();
+      renderCtaForm();
+      renderFaq();
+      renderServicesFull();
+      renderTechStack();
+      renderCasesFull();
+      renderBlog();
+      renderAboutStats();
+      renderValues();
+      renderContactFull();
+      renderFooterLinks();
+      applyTranslations();
+    }
+
+    renderAll();
+</script>
+</body>
+</html>
