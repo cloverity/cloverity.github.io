@@ -24,7 +24,7 @@ a.nav-btn:hover{background:#f0f0f0}
 .sec{padding:44px 24px;border-bottom:1px solid #eee}
 .sec-alt{background:#fafafa}
 h1.case-title{font-size:22px;font-weight:800;color:#111;margin:10px 0 8px;line-height:1.3}
-h2.title{font-size:18px;font-weight:700;margin-bottom:6px;color:#111}
+h1.title,h2.title{font-size:18px;font-weight:700;margin-bottom:6px;color:#111}
 h3.stitle{font-size:14px;font-weight:700;margin-bottom:4px;color:#222}
 .sub{font-size:12px;color:#888;margin-bottom:20px;line-height:1.6}
 .lead{font-size:13px;color:#444;line-height:1.7}
@@ -64,11 +64,11 @@ ul.built li::before{content:"";position:absolute;left:2px;top:15px;width:6px;hei
 <div class="wrap">
 <div class="nav"><div class="nav-logo"><div class="nav-logo-icon">C</div><span>Cloverity</span></div><a class="nav-btn" href="index.html">All cases</a></div>
 <div class="sec"><span class="badge">Client delivery · proof-of-concept</span><h1 class="case-title">Financial-statement extraction from SEC filings</h1><p class="lead">A ~3-month proof-of-concept that turns SEC 10-K and 10-Q filings into structured financial statements.</p></div>
-<div class="sec sec-alt"><h2 class="title">Problem</h2><p class="text">We worked with a client that needed structured financial statements from SEC 10-K / 10-Q filings.</p><p class="text">All five financial-statement types had to be extracted from each filing, with zero errors as the target, and delivered as Excel spreadsheets.</p></div>
+<div class="sec sec-alt"><h2 class="title">Problem</h2><p class="text">We worked with a client that needed structured financial statements from SEC 10-K / 10-Q filings.</p><p class="text">All five financial-statement types had to be extracted from each filing and delivered as Excel spreadsheets.</p></div>
 <div class="sec"><h2 class="title">What we built</h2><ul class="built"><li>Extraction engine for text-based PDF filings, built on pdfplumber — covers all 5 financial-statement types in 10-K / 10-Q filings.</li><li>FastAPI backend exposing the extraction workflow.</li><li>Excel export pipeline — extracted statements delivered as spreadsheets.</li><li>Working POC delivered at the end of a ~3-month engagement.</li></ul></div>
 <div class="sec sec-alt"><h2 class="title">Stack</h2><div class="pills"><span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">pdfplumber</span><span class="pill">Excel export</span></div></div>
-<div class="sec"><h2 class="title">Results</h2><p class="sub">Each figure is shown with its basis.</p><div class="results"><div class="result"><span class="result-tag">High extraction accuracy: up to 98% across the statement types</span><span class="basis">— measured on the project</span></div><div class="result"><span class="result-tag">All 5 financial-statement types extracted from 10-K / 10-Q filings</span><span class="basis">— delivered in the POC</span></div></div></div>
-<div class="sec sec-alt"><h2 class="title">Screenshots</h2><p class="sub">Placeholders — real screenshots are being prepared.</p><div class="grid2"><div class="img-ph"><strong>Screenshot coming soon</strong><span>Extracted statement</span></div><div class="img-ph"><strong>Screenshot coming soon</strong><span>Excel export</span></div></div></div>
+<div class="sec"><h2 class="title">Results</h2><p class="sub">Each figure is shown with its basis.</p><div class="results"><div class="result"><span class="result-tag">High extraction accuracy (up to 98%)</span><span class="basis">— measured on the project</span></div><div class="result"><span class="result-tag">All 5 financial-statement types extracted from 10-K / 10-Q filings</span><span class="basis">— delivered in the POC</span></div></div></div>
+<div class="sec sec-alt"><h2 class="title">Screenshots</h2><p class="sub">Screenshots omitted to protect client confidentiality.</p><div class="grid2"><div class="img-ph"><strong>Screenshot omitted</strong><span>Extracted statement</span></div><div class="img-ph"><strong>Screenshot omitted</strong><span>Excel export</span></div></div></div>
 <div class="sec"><h2 class="title">Role</h2><p class="text">Designed and built the extraction engine, the backend and the Excel export pipeline, and delivered the working POC.</p></div>
 <div class="footer">© 2026 Cloverity Software</div>
 </div>
