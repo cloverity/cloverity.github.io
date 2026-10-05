@@ -5,6 +5,7 @@ Run from anywhere: python3 tools/gen_cases.py
 cases/*.html are GENERATED - edit this generator, not the HTML.
 Static output, no JS.
 """
+import re
 from html import escape
 from pathlib import Path
 
@@ -67,7 +68,8 @@ FOOTER = '<div class="footer">© 2026 Cloverity Software</div>'
 
 
 def head(title, desc, url, og_type):
-    assert len(desc) <= 160, (title, len(desc))
+    if len(desc) > 160:
+        raise SystemExit(f"meta description too long ({len(desc)} > 160): {title}")
     t, d = escape(title), escape(desc)
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -304,8 +306,11 @@ def index_page():
 
 
 if __name__ == "__main__":
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "index.html").write_text(index_page(), encoding="utf-8")
     for c in CASES:
-        (OUT / f'{c["slug"]}.html').write_text(case_page(c), encoding="utf-8")
+        if not re.fullmatch(r"[a-z0-9-]+", c["slug"]):
+            raise SystemExit(f'invalid slug {c["slug"]!r}: must match ^[a-z0-9-]+$')
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "index.html").write_text(index_page(), encoding="utf-8", newline="\n")
+    for c in CASES:
+        (OUT / f'{c["slug"]}.html').write_text(case_page(c), encoding="utf-8", newline="\n")
     print("ok")
